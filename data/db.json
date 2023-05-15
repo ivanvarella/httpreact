@@ -14,6 +14,21 @@
       "id": 3,
       "name": "Boné aba reta",
       "price": 29.9
+    },
+    {
+      "name": "Teste",
+      "price": "25",
+      "id": 4
+    },
+    {
+      "name": "Capa de chuva",
+      "price": "51.65",
+      "id": 5
+    },
+    {
+      "name": "Chapéu doido",
+      "price": "150",
+      "id": 6
     }
   ]
 }
