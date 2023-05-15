@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "server": "json-server --watch data/db.json"
+    "server": "json-server --watch data/db.json --port 3004"
   },
   "dependencies": {
     "json-server": "^0.17.3",
