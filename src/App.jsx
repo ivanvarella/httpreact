@@ -1,29 +1,33 @@
 import "./App.css";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
+
+// 4- Custom hook
+import { useFetch } from "./hooks/useFetch";
 
 const url = "http://localhost:3004/products";
 
 function App() {
-  const [produtcs, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
+
+  // 4- Custom hook
+  const { data: items } = useFetch(url);
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
 
-  // 1- Get dados
-  useEffect(() => {
-    async function fetchData() {
-      const res = await fetch(url);
+  // 1- Getting dados
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const res = await fetch(url);
 
-      const data = await res.json();
+  //     const data = await res.json();
 
-      setProducts(data);
-    }
+  //     setProducts(data);
+  //   }
 
-    fetchData();
-  }, []);
-
-  console.log("Produts GET: ", produtcs);
+  //   fetchData();
+  // }, []);
 
   // 2- Add products
   const handleSubmit = async (e) => {
@@ -34,8 +38,6 @@ function App() {
       price,
     };
 
-    console.log("Produts Before POST: ", product);
-
     const res = await fetch(url, {
       method: "POST",
       headers: {
@@ -43,6 +45,14 @@ function App() {
       },
       body: JSON.stringify(product),
     });
+
+    // Dynamic reload
+    const addedProduct = await res.json();
+
+    setProducts((preProducts) => [...preProducts, addedProduct]);
+
+    setName("");
+    setPrice("");
   };
 
   return (
@@ -50,11 +60,12 @@ function App() {
       {" "}
       <h1>Lista de produtos</h1>{" "}
       <ul>
-        {produtcs.map((produtcs) => (
-          <li key={produtcs.id}>
-            {produtcs.name} - R${produtcs.price}
-          </li>
-        ))}
+        {items &&
+          items.map((product) => (
+            <li key={product.id}>
+              {product.name} - R${product.price}
+            </li>
+          ))}
       </ul>
       <div className="add-product">
         <form onSubmit={handleSubmit}>

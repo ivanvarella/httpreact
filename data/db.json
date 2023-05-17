@@ -29,6 +29,26 @@
       "name": "Chapéu doido",
       "price": "150",
       "id": 6
+    },
+    {
+      "name": "Teste2",
+      "price": "3590",
+      "id": 7
+    },
+    {
+      "name": "Teste3",
+      "price": "9000",
+      "id": 8
+    },
+    {
+      "name": "Monitor Oled",
+      "price": "3500",
+      "id": 9
+    },
+    {
+      "name": "Produto 1",
+      "price": "15",
+      "id": 10
     }
   ]
 }
