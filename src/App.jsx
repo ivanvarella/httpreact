@@ -10,13 +10,13 @@ const url = "http://localhost:3004/products";
 function App() {
   const [products, setProducts] = useState([]);
 
-  // 4- Custom hook
+  //4- Custom hook
   const { data: items } = useFetch(url);
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
 
-  // 1- Getting dados
+  // 1- Getting data (comentado após a criação do custom hook useFetch)
   // useEffect(() => {
   //   async function fetchData() {
   //     const res = await fetch(url);
@@ -29,7 +29,7 @@ function App() {
   //   fetchData();
   // }, []);
 
-  // 2- Add products
+  // 2- Add Products
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -37,7 +37,6 @@ function App() {
       name,
       price,
     };
-
     const res = await fetch(url, {
       method: "POST",
       headers: {
@@ -46,10 +45,10 @@ function App() {
       body: JSON.stringify(product),
     });
 
-    // Dynamic reload
+    // 3- Dynamic reload
     const addedProduct = await res.json();
 
-    setProducts((preProducts) => [...preProducts, addedProduct]);
+    setProducts((prevProducts) => [...prevProducts, addedProduct]);
 
     setName("");
     setPrice("");
@@ -63,7 +62,7 @@ function App() {
         {items &&
           items.map((product) => (
             <li key={product.id}>
-              {product.name} - R${product.price}
+              {product.name} - R$: {product.price}
             </li>
           ))}
       </ul>
@@ -79,7 +78,7 @@ function App() {
             />
           </label>
           <label>
-            Preço:
+            Proço:
             <input
               type="number"
               value={price}

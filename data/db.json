@@ -16,38 +16,38 @@
       "price": 29.9
     },
     {
-      "name": "Teste",
-      "price": "25",
-      "id": 4
-    },
-    {
       "name": "Capa de chuva",
       "price": "51.65",
-      "id": 5
+      "id": 4
     },
     {
       "name": "Chapéu doido",
       "price": "150",
-      "id": 6
-    },
-    {
-      "name": "Teste2",
-      "price": "3590",
-      "id": 7
-    },
-    {
-      "name": "Teste3",
-      "price": "9000",
-      "id": 8
+      "id": 5
     },
     {
       "name": "Monitor Oled",
       "price": "3500",
+      "id": 6
+    },
+    {
+      "name": "DVD Player",
+      "price": "120",
+      "id": 7
+    },
+    {
+      "name": "Mouse Gamer Razer",
+      "price": "830.45",
+      "id": 8
+    },
+    {
+      "name": "i7 13700K",
+      "price": "2799.99",
       "id": 9
     },
     {
-      "name": "Produto 1",
-      "price": "15",
+      "name": "Asus Z790 ROG Strix",
+      "price": "3600.50",
       "id": 10
     }
   ]
