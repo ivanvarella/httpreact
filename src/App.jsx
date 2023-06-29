@@ -8,10 +8,10 @@ import { useFetch } from "./hooks/useFetch";
 const url = "http://localhost:3004/products";
 
 function App() {
-  const [products, setProducts] = useState([]);
+  //const [products, setProducts] = useState([]);
 
   //4- Custom hook
-  const { data: items } = useFetch(url);
+  const { data: items, httpConfig } = useFetch(url); //Getting Data to items
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -37,18 +37,21 @@ function App() {
       name,
       price,
     };
-    const res = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(product),
-    });
+    // const res = await fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(product),
+    // });
 
-    // 3- Dynamic reload
-    const addedProduct = await res.json();
+    // // 3- Dynamic reload
+    // const addedProduct = await res.json();
 
-    setProducts((prevProducts) => [...prevProducts, addedProduct]);
+    // setProducts((prevProducts) => [...prevProducts, addedProduct]);
+
+    // 5- Refactoring Post
+    httpConfig(product, "POST");
 
     setName("");
     setPrice("");
@@ -78,7 +81,7 @@ function App() {
             />
           </label>
           <label>
-            Proço:
+            Preço:
             <input
               type="number"
               value={price}
