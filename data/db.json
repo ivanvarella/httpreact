@@ -1,11 +1,6 @@
 {
   "products": [
     {
-      "name": "Monitor Oled",
-      "price": "3500",
-      "id": 1
-    },
-    {
       "name": "Mouse Gamer Razer",
       "price": "830.45",
       "id": 2
