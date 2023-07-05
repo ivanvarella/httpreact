@@ -8,26 +8,11 @@ import { useFetch } from "./hooks/useFetch";
 const url = "http://localhost:3004/products";
 
 function App() {
-  //const [products, setProducts] = useState([]);
-
   //4- Custom hook
   const { data: items, httpConfig, loading, error } = useFetch(url); //Getting Data to items
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
-
-  // 1- Getting data (comentado após a criação do custom hook useFetch)
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const res = await fetch(url);
-
-  //     const data = await res.json();
-
-  //     setProducts(data);
-  //   }
-
-  //   fetchData();
-  // }, []);
 
   // 2- Add Products
   const handleSubmit = async (e) => {
@@ -37,18 +22,6 @@ function App() {
       name,
       price,
     };
-    // const res = await fetch(url, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(product),
-    // });
-
-    // // 3- Dynamic reload
-    // const addedProduct = await res.json();
-
-    // setProducts((prevProducts) => [...prevProducts, addedProduct]);
 
     // 5- Refactoring Post
     httpConfig(product, "POST");
